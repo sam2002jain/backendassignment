@@ -2,30 +2,41 @@
 
 let quizzes = [
   {
-    id: 1,
-    subject: "Computer Science",
-    title: "Basic Programming",
-    questions: [
+    "id": 1,
+    "subject": "Operating Systems",
+    "title": "Memory Management Quiz",
+    "questions": [
       {
-        question: "What is the capital of France?",
-        options: ["Berlin", "Madrid", "Paris", "Rome"],
-        correctAnswer: "Paris"
+        "question": "What is paging in Operating Systems?",
+        "options": ["Memory Allocation", "Process Scheduling", "I/O Management", "Disk Partitioning"],
+        "correctAnswer": "Memory Allocation"
+      },
+      {
+        "question": "Which of these is a memory management scheme?",
+        "options": ["First Fit", "Round Robin", "Fair Share", "Preemption"],
+        "correctAnswer": "First Fit"
       }
     ]
   },
   {
-    id: 2,
-    subject: "Mathematics",
-    title: "Algebra Basics",
-    questions: [
+    "id": 2,
+    "subject": "Data Structures",
+    "title": "Stack and Queue Basics",
+    "questions": [
       {
-        question: "What is 2 + 2?",
-        options: ["3", "4", "5", "6"],
-        correctAnswer: "4"
+        "question": "What is a stack?",
+        "options": ["FIFO", "LIFO", "Heap", "Queue"],
+        "correctAnswer": "LIFO"
+      },
+      {
+        "question": "What is a queue?",
+        "options": ["FIFO", "LIFO", "Heap", "Stack"],
+        "correctAnswer": "FIFO"
       }
     ]
   }
 ];
+
 
 // In-memory storage for leaderboards
 const leaderboards = {};
