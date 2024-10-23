@@ -37,17 +37,18 @@ let quizzes = [
   }
 ];
 
-
 // In-memory storage for leaderboards
 const leaderboards = {};
 
 export default function handler(req, res) {
   switch (req.method) {
     case 'GET':
+      // Return the list of quizzes
       res.status(200).json({ quizzes });
       break;
 
     case 'POST':
+      // Add a new quiz
       const { subject, title, questions } = req.body;
 
       if (!subject || !title || !questions || !questions.length) {
