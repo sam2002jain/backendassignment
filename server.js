@@ -3,16 +3,16 @@ const mongoose = require('mongoose');
 const { Form, Response } = require('./Form');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/formbuilder', {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
 app.post('/forms', async (req, res) => {
   try {
     const form = new Form(req.body);
