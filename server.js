@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const { Form, Response } = require('./Form');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const service = require('./server');
 
 const app = express();
 app.use(cors());
