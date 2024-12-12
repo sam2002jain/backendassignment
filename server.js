@@ -1,18 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const { Form, Response } = require('./Form');
+const { Form, Response } = require('./models/Form');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-require('dotenv').config();
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGO_URI, {
+// Use environment variable for MongoDB URI
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/formbuilder';
+
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
 app.post('/forms', async (req, res) => {
   try {
     const form = new Form(req.body);
@@ -42,4 +45,7 @@ app.post('/forms/:id/responses', async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.listen(process.env.PORT || 3000, () => {
+  console.log('Server running on port ' + (process.env.PORT || 3000));
+});
+
