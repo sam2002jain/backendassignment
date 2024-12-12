@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const { Form, Response } = require('./models/Form');
+const { Form, Response } = require('./Form');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
