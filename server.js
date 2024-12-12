@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Use environment variable for MongoDB URI
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/formbuilder';
+const MONGO_URI = process.env.MONGO_URI || `mongodb+srv://jainsam1975:YGI7VJotoS3eQ2ek@cluster0.mongodb.net/formbuilder?retryWrites=true&w=majority`;
 
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
@@ -48,4 +48,3 @@ app.post('/forms/:id/responses', async (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
   console.log('Server running on port ' + (process.env.PORT || 3000));
 });
-
