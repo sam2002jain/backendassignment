@@ -12,7 +12,15 @@ require('dotenv').config();
   }
 })();
 const formSchema = new mongoose.Schema({
-  questions: Array,
+  questions: [
+    {
+      id: Number,
+      type: String,
+      text: String,
+      options: [String],
+      image: String,
+    },
+  ],
   headerImage: String,
 });
 
