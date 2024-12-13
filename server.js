@@ -1,5 +1,5 @@
 const express = require('express');
-const Form = require('./Form'); // Assuming your model is in a file named Form.js
+const Form = require('./Form'); 
 const app = express();
 
 app.use(express.json());
