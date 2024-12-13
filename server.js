@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Form = require('./Form');
-
+const port = process.env.PORT || 4000;
 router.post('/forms', async (req, res) => {
   try {
     const { questions, headerImage } = req.body;
@@ -15,5 +15,8 @@ router.post('/forms', async (req, res) => {
     res.status(400).json({ message: 'Error saving form', error });
   }
 });
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 
 module.exports = router;
