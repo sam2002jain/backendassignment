@@ -1,20 +1,19 @@
 const express = require('express');
-const Form = require('./Form'); 
-const app = express();
+const router = express.Router();
+const Form = require('./Form');
 
-app.use(express.json());
-
-app.post('/forms', async (req, res) => {
+router.post('/forms', async (req, res) => {
   try {
     const { questions, headerImage } = req.body;
-    const newForm = new Form({ questions, headerImage });
-    await newForm.save();
-    res.status(201).send(newForm);
+
+    // Validate the payload against the schema
+    const form = new Form({ questions, headerImage });
+    await form.save();
+
+    res.status(201).json({ message: 'Form saved successfully', form });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(400).json({ message: 'Error saving form', error });
   }
 });
 
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports = router;
